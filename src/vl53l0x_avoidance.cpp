@@ -23,7 +23,7 @@ void VL53L0X_Avoidance::init_gpio(){
 }
 VL53L0X_Avoidance::~VL53L0X_Avoidance(){
 	VL53L0X_i2c_close();
-	if(_uart!=nullptr)
+	if(_uart!=NULL)
 		delete _uart;
 }
 void  VL53L0X_Avoidance::open_uart(const string uart_dev,int baudrate){
@@ -46,11 +46,12 @@ void VL53L0X_Avoidance::init_vl53l0x(){
 }
 bool VL53L0X_Avoidance::init_vl53l0x(uint8_t id){
 	uint32_t refSpadCount;
-    uint8_t isApertureSpads;
-    uint8_t VhvSettings;
-    uint8_t PhaseCal;
+	uint8_t isApertureSpads;
+	uint8_t VhvSettings;
+	uint8_t PhaseCal;
 	Status = VL53L0X_ERROR_NONE;
 	digitalWrite(Avoidance_Device[id].control_gpio_id,  HIGH);
+	delay(5);
 	//get i2c bus
 	Avoidance_Device[id].Device.fd=i2c_fd;
 	if (ioctl(i2c_fd, I2C_SLAVE,Avoidance_Device[id].Device.I2cDevAddr) < 0){

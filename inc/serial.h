@@ -15,7 +15,7 @@ class Serial {
 public:
 
   Serial() : m_serialPort(-1) {}
-  ~Serial(){close(m_serialPort);}
+  //~Serial(){close(m_serialPort);}
   // open a serial port connection
   void open(const std::string& port, int rate = 115200);
 

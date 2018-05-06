@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 	string dev;
 	if (cml["-b"]) baud_rate =stoi(cml("-b"));
 	if (cml["-d"]){
-		dev=cml("-d")
+		dev=cml("-d");
 	}else{
 		cout<<"need uart dev"<<endl;
 		exit(1);

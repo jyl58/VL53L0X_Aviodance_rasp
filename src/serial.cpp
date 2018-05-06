@@ -4,13 +4,9 @@
  * @author: jyl
  */
 
-#include <termios.h>
-#include <stdlib.h>
-#include <iostream>
-#include <sstream>
-#include <unistd.h>
 
-#include "Serial.h"
+
+#include "serial.h"
 
 using namespace std;
 
