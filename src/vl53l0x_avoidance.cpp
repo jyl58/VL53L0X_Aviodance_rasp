@@ -43,6 +43,7 @@ void VL53L0X_Avoidance::init_vl53l0x(){
 			exit(1);
 		}
 	}
+	cout<<"all VL53L0X init done"<<endl;
 }
 bool VL53L0X_Avoidance::init_vl53l0x(uint8_t id){
 	uint32_t refSpadCount;
