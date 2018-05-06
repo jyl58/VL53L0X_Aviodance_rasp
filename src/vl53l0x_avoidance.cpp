@@ -142,7 +142,7 @@ void VL53L0X_Avoidance::send_range_to_fc(uint8_t id){
 	distance_mavlink_msg.max_distance=VL530_MAX_DISTANCE;
 	distance_mavlink_msg.min_distance=VL530_MIN_DISTANCE;
 	mavlink_msg_distance_sensor_encode(system_id, component_id, &mavlink_msg, &distance_mavlink_msg);
-	if(_uart->print((uint8_t *)&mavlink_msg, sizeof(mavlink_message_t)) != sizeof(mavlink_message_t))
+	if(_uart->print((char *)&mavlink_msg, sizeof(mavlink_message_t)) != sizeof(mavlink_message_t))
 		cerr << "send mavlink message err" << endl;
 }
 uint16_t VL53L0X_Avoidance::get_distance(uint8_t id){

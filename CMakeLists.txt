@@ -2,7 +2,7 @@ project(VL53L0X_Aviodance)
 
 cmake_minimum_required(VERSION 3.0)
 
-add_compile_options(-std=c++11 )
+#add_compile_options(-std=c++11 )
 
 SET(api_src_path VL53L0X_rasp/VL53L0X_1.0.2/Api/core/src)
 SET(rasp_src_path VL53L0X_rasp/platform/src)
