@@ -1,11 +1,11 @@
 #include "vl53l0x_avoidance.h"
-
+#include <stdlib.h>
 int main(int argc, char **argv)
 {
 	CmdLineParser cml(argc, argv);
 	int baud_rate=115200;
 	string dev;
-	if (cml["-b"]) baud_rate =stoi(cml("-b"));
+	if (cml["-b"]) baud_rate =atoi(cml("-b").c_str());
 	if (cml["-d"]){
 		dev=cml("-d");
 	}else{
