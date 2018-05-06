@@ -3,9 +3,6 @@
  * @brief Simple serial interface, for example to talk to Arduino.
  * @author: jyl
  */
-
-
-
 #include "serial.h"
 
 using namespace std;
@@ -56,7 +53,7 @@ void Serial::open(const string& port, int rate) {
 }
 
 // read a single character
-int Serial::read() const {
+int Serial::read(){
   unsigned char result;
   if (::read(m_serialPort, &result, 1) == 1) {
     return (int)result;
@@ -84,12 +81,12 @@ string Serial::readBytesUntil(unsigned char until, int max_length) {
 }
 
 // send a string
-void Serial::print(string str) const {
+void Serial::print(string str) {
   int res = ::write(m_serialPort, str.c_str(), str.length());
 }
 
 // send an integer
-void Serial::print(int num) const {
+void Serial::print(int num) {
   stringstream stream;
   stream << num;
   string str = stream.str();
@@ -97,7 +94,7 @@ void Serial::print(int num) const {
 }
 
 // send a double
-void Serial::print(double num) const {
+void Serial::print(double num){
   stringstream stream;
   stream << num;
   string str = stream.str();
@@ -105,10 +102,10 @@ void Serial::print(double num) const {
 }
 
 // send a float
-void Serial::print(float num) const {
+void Serial::print(float num) {
   print((double)num);
 }
 
-int Serial::print(uint8_t* str,int len) const {
+int Serial::print(char* str,int len) {
   return ::write(m_serialPort, str, len);
 }

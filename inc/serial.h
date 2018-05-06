@@ -7,6 +7,11 @@
 #pragma once
 #include <fcntl.h>
 #include <string>
+#include <termios.h>
+#include <stdlib.h>
+#include <iostream>
+#include <sstream>
+#include <unistd.h>
 
 class Serial {
 
@@ -20,22 +25,22 @@ public:
   void open(const std::string& port, int rate = 115200);
 
   // read a single character
-  int read() const;
+  int read() ;
 
   // read until special character up to a maximum number of bytes
   std::string readBytesUntil(unsigned char until, int length = 300);
 
   // send a string
-  void print(std::string str) const;
+  void print(std::string str) ;
 
   // send an integer
-  void print(int num) const;
+  void print(int num);
 
   // send a double
-  void print(double num) const;
+  void print(double num);
 
   // send a float
-  void print(float num) const;
+  void print(float num) ;
 
-  int print(uint8_t* str,int len) const;
+  int print(char* str,int len) ;
 };
