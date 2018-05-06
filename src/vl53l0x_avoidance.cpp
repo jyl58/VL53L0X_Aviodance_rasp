@@ -51,6 +51,7 @@ bool VL53L0X_Avoidance::init_vl53l0x(uint8_t id){
 	uint8_t VhvSettings;
 	uint8_t PhaseCal;
 	Status = VL53L0X_ERROR_NONE;
+	printf ("Do %s of VL53L0X Init\n",vl53l0x_addr_table[id].description);
 	digitalWrite(Avoidance_Device[id].control_gpio_id,  HIGH);
 	delay(5);
 	//get i2c bus
@@ -71,10 +72,10 @@ bool VL53L0X_Avoidance::init_vl53l0x(uint8_t id){
 	}
 	// End of implementation specific
     if(Status == VL53L0X_ERROR_NONE){
-		printf ("Call %s of VL53L0X_DataInit\n",vl53l0x_addr_table[id].description);
         Status = VL53L0X_DataInit(&Avoidance_Device[id].Device); // Data initialization
         print_pal_error(Status);
     }else{
+		printf ("Call %s of VL53L0X Data Init err!\n",vl53l0x_addr_table[id].description);
 		return false;
 	}
 	if(Status == VL53L0X_ERROR_NONE)
