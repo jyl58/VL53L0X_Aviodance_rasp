@@ -148,7 +148,7 @@ void VL53L0X_Avoidance::send_range_to_fc(uint8_t id){
 		cerr << "send mavlink message err" << endl;
 }
 uint16_t VL53L0X_Avoidance::get_distance(uint8_t id){
-	return Avoidance_Device[id].RangingMeasurementData.RangeMilliMeter; //mm
+	return Avoidance_Device[id].RangingMeasurementData.RangeStatus ==0 ? Avoidance_Device[id].RangingMeasurementData.RangeMilliMeter : 0; //mm
 }
 void VL53L0X_Avoidance::update_range(){
 	for(int i=0;i<VL530_MAX_COUNT;i++){
