@@ -7,7 +7,6 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <iostream>
-#include <sys/time.h>
 
 #include "mavlink_types.h"
 #include "ardupilotmega/mavlink.h"
